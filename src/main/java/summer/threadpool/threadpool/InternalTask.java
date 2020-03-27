@@ -15,7 +15,7 @@ public class InternalTask implements Runnable {
 
     @Override
     public void run() {
-        while (running && Thread.currentThread().isInterrupted()) {
+        while (running && !Thread.currentThread().isInterrupted()) {
             try {
                 Runnable task = runnableQueue.take();
                 task.run();
